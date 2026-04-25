@@ -90,6 +90,11 @@ This project analyzes customer churn behavior for a telecom company using an end
 - Actionable insights and recommendations
 - Interactive data visualization
 
+ **What I Learned**
+- Handling data type inconsistencies across tools
+- Translating business questions into SQL queries
+- Designing dashboards for stakeholder decision-making
+
 **Author**
 *Zaher Ahmed*
 - GitHub: [[profile link](https://github.com/zaher-insights/Netflix-Insights-)]
