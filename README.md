@@ -73,8 +73,8 @@ This project analyzes customer churn behavior for a telecom company using an end
 - Target high-risk segments with retention campaigns
 
   **Dashboard Preview**
-![Image Alt]()
-
+![Image Alt](https://raw.githubusercontent.com/zaher-insights/Telco-Churn/b73a02a937963053d2bcaab698c06c4e50436071/Telco%20Churn.png)
+![Image Alt](https://raw.githubusercontent.com/zaher-insights/Telco-Churn/3d0c6dcc9030b873f871d565aaa45ce2424b4eec/Dashboard1.png)
 
 **How to Reproduce**
 1. Download dataset from Kaggle
