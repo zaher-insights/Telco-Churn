@@ -72,6 +72,94 @@ This project analyzes customer churn behavior for a telecom company using an end
 - Review pricing strategy for high-cost plans
 - Target high-risk segments with retention campaigns
 
+**SQL Analysis**
+
+```SQL
+--1. Overall churn rate
+SELECT 
+  COUNT(*) AS total_customers,
+  SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) AS churned_customers,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) / COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`;
+-- churn rate 26%, thats very high.
+```
+```SQL
+--2. Do long-term contracts reduce churn?
+SELECT 
+  Contract,
+  COUNT(*) AS total,
+  SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) AS churned,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY Contract
+ORDER BY churn_rate DESC;
+-- month-to-month hightest churn, 2 year contracts lowest churn
+```
+
+```SQL
+--3. Are customers with hightest bill leaving?
+SELECT 
+  CASE 
+    WHEN MonthlyCharges < 40 THEN 'Low'
+    WHEN MonthlyCharges BETWEEN 40 AND 80 THEN 'Medium'
+    ELSE 'High'
+  END AS charge_group,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY charge_group
+ORDER BY churn_rate DESC;
+-- Customers with higher bill are higher churn risk. We need to fixing pricing.
+```
+```SQL
+--4. When do customers leave?
+SELECT 
+  CASE 
+    WHEN tenure <= 12 THEN '0-1 Year'
+    WHEN tenure <= 24 THEN '1-2 Years'
+    ELSE '2+ Years'
+  END AS tenure_group,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY tenure_group
+ORDER BY churn_rate DESC;
+-- New customers churn the most, onboarding experience is weak.
+```
+```SQL
+--5. Which Internet Service effect the churn?
+SELECT 
+  InternetService,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY InternetService
+ORDER BY churn_rate desc;
+-- Lookes like Fiber Opitc often churn more, could indicate price or service quality issue.
+```
+
+```SQL
+--6. Do add-on services reduce churn?
+SELECT 
+  TechSupport,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY TechSupport;
+-- Customers without support higher churn.
+```
+```SQL
+--7. Which payment method effect have high risk of churn?
+SELECT 
+  PaymentMethod,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY PaymentMethod
+ORDER BY churn_rate DESC;
+-- Electronic check users churn the most. 
+```
+
   **Dashboard Preview**
 ![Image Alt](https://raw.githubusercontent.com/zaher-insights/Telco-Churn/b73a02a937963053d2bcaab698c06c4e50436071/Telco%20Churn.png)
 ![Image Alt](https://raw.githubusercontent.com/zaher-insights/Telco-Churn/3d0c6dcc9030b873f871d565aaa45ce2424b4eec/Dashboard1.png)
