@@ -79,7 +79,7 @@ By focusing on these high-risk segments, the company can realistically reduce ch
 ## Insights Deep Dive
 
 ### 1. High-Risk Contract Segment
- *(Bar Chart: Churn Rate by Contract Type)*  
+   ![Image Alt](https://github.com/zaher-insights/Telco-Churn/blob/main/Churn%20by%20Contract.png?raw=true)
 
 - Month-to-month: **~55% churn rate**  
 - One-year contract: **~11% churn rate**  
@@ -88,10 +88,9 @@ By focusing on these high-risk segments, the company can realistically reduce ch
 Insight:  
 Customers without long-term commitment are **5x–15x more likely to churn**.
 
----
 
 ### 2. Payment Behavior Risk Pattern
-*(Heatmap: Payment Method vs Churn Rate)*  
+ ![Image Alt](https://github.com/zaher-insights/Telco-Churn/blob/main/Payment%20Method.png?raw=true)
 
 - Electronic check: **~45% churn rate**  
 - Credit card / auto-pay: **~15–18% churn rate**  
@@ -99,10 +98,9 @@ Customers without long-term commitment are **5x–15x more likely to churn**.
  Insight:  
 Manual or less automated payment methods correlate with **2–3x higher churn risk**.
 
----
 
 ### 3. Early Lifecycle Churn Problem
- *(Line Chart: Churn Rate by Tenure)*  
+![Image Alt](https://github.com/zaher-insights/Telco-Churn/blob/main/Churn%20Tenure.png?raw=true) 
 
 - 0–6 months: **~47% churn**  
 - 6–12 months: **~30% churn**  
@@ -111,7 +109,6 @@ Manual or less automated payment methods correlate with **2–3x higher churn ri
 Insight:  
 The **first 90–180 days** represent the highest-risk period.
 
----
 
 ### 4. Service Adoption Impact
 *(Bar Chart: Number of Services vs Churn)*  
@@ -123,7 +120,6 @@ The **first 90–180 days** represent the highest-risk period.
 Insight:  
 Each additional service significantly reduces churn probability.
 
----
 
 ##  KPIs & Recommendations
 
@@ -156,7 +152,6 @@ Upsell bundled services:
 Focus retention efforts on customers contributing the highest revenue at risk.  
 → Maximizes ROI of retention campaigns
 
----
 
 ##  Key Performance Indicators (KPIs)
 
