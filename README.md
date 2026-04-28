@@ -42,7 +42,7 @@ This demonstrates that **product adoption directly impacts retention**.
 A relatively small portion of customers (~30%) contributes to **over 60% of total revenue at risk**, indicating a strong opportunity for targeted retention strategies.
 
 
-## 🗂 Data Structure & Initial Checks
+## Data Structure & Initial Checks
 
 The dataset contains **7,043 customer records** with the following components:
 
@@ -59,7 +59,7 @@ The dataset contains **7,043 customer records** with the following components:
 - Verified null values (<2% missing, handled appropriately)  
 
 
-## 📌 Executive Summary
+## Executive Summary
 
 The analysis reveals that churn is **highly concentrated and predictable**, rather than random.  
 
@@ -114,20 +114,20 @@ The **first 90–180 days** represent the highest-risk period.
 ---
 
 ### 4. Service Adoption Impact
-📊 *(Bar Chart: Number of Services vs Churn)*  
+*(Bar Chart: Number of Services vs Churn)*  
 
 - 1 service: **~35% churn**  
 - 2 services: **~25% churn**  
 - 3+ services: **~12–15% churn**  
 
-👉 Insight:  
+Insight:  
 Each additional service significantly reduces churn probability.
 
 ---
 
-## 📈 KPIs & Recommendations
+##  KPIs & Recommendations
 
-### 💡 Strategic Recommendations
+### Strategic Recommendations
 
 #### 1. Convert High-Risk Contract Segments
 Target month-to-month customers with incentives (discounts, bundles).  
@@ -158,7 +158,7 @@ Focus retention efforts on customers contributing the highest revenue at risk.
 
 ---
 
-## 📊 Key Performance Indicators (KPIs)
+##  Key Performance Indicators (KPIs)
 
 ### 1. Churn Rate (%)
 Primary measure of customer loss  
