@@ -109,16 +109,16 @@ Manual or less automated payment methods correlate with **2–3x higher churn ri
 Insight:  
 The **first 90–180 days** represent the highest-risk period.
 
+### 4. Internet Service Impact
+  ![Image Alt](https://github.com/zaher-insights/Telco-Churn/blob/main/Churn%20Heatmap.png?raw=true)
 
-### 4. Service Adoption Impact
-*(Bar Chart: Number of Services vs Churn)*  
-
-- 1 service: **~35% churn**  
-- 2 services: **~25% churn**  
-- 3+ services: **~12–15% churn**  
+- Fiber optic: ~41% churn  
+- DSL: ~19% churn  
+- No internet: ~7% churn  
 
 Insight:  
-Each additional service significantly reduces churn probability.
+Customers using fiber optic services have the highest churn rate, more than double that of DSL users. This suggests potential dissatisfaction with pricing or service quality in higher-tier offerings.
+
 
 
 ##  KPIs & Recommendations
