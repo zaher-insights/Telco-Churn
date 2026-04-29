@@ -1,0 +1,7 @@
+-- Overall churn rate
+SELECT 
+  COUNT(*) AS total_customers,
+  SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) AS churned_customers,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) / COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`;
+-- churn rate 26%, thats very high.
