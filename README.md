@@ -123,7 +123,7 @@ The **first 90–180 days** represent the highest-risk period.
 - No internet: ~7% churn  
 
 Insight:  
-Customers using fiber optic services have the highest churn rate, more than double that of DSL users. This suggests potential dissatisfaction with pricing or service quality in higher-tier offerings.
+Customers using fiber optic services have the highest churn rate, more than double that of DSL users. This suggests potential dissatisfaction with pricing or service quality in higher-tier offerings. While Fiber Optic is a premium service, the high churn rate suggests a potential issue with technical reliability or a price-point that exceeds customer perceived value.
 
 
 
