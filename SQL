@@ -5,3 +5,14 @@ SELECT
   ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) / COUNT(*), 3) AS churn_rate
 FROM `telco-customers.Telco_Customers1.Telco_Churn`;
 -- churn rate 26%, thats very high.
+
+-- Do long-term contracts reduce churn?
+SELECT 
+  Contract,
+  COUNT(*) AS total,
+  SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) AS churned,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY Contract
+ORDER BY churn_rate DESC;
+-- month-to-month hightest churn, 2 year contracts lowest churn
