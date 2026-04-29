@@ -44,21 +44,27 @@ A relatively small portion of customers (~30%) contributes to **over 60% of tota
 
 ## Data Structure & Initial Checks
 
-The dataset contains **7,043 customer records** with the following components:
+The Telco Customer Churn dataset consists of a single main table containing approximately 7,000+ customer records, with 20+ fields capturing customer demographics, account details, service subscriptions, and churn status.
 
-- Customer Information: Customer ID, tenure  
-- Account Details: Contract type, billing preferences  
-- Payment Data: Payment method, monthly charges  
-- Service Usage: Internet, phone, streaming services  
-- Target Variable: Churn (Yes/No)  
+![Image Alt](https://github.com/zaher-insights/Telco-Churn/blob/main/Data%20Structure.png?raw=true)
 
-### Initial Data Quality Checks:
-- Removed duplicate entries (0.5% of dataset)  
-- Standardized categorical values (e.g., payment types, contract labels)  
-- Converted churn into binary flag (1 = churned, 0 = retained)  
-- Verified null values (<2% missing, handled appropriately)  
+Before beginning the analysis, initial data quality checks were performed to understand the dataset structure and ensure reliability of insights. These checks helped identify missing values, inconsistencies, and overall data distribution.
 
+### Key Data Components:
+- Customer Information: Customer ID, tenure (length of time as a customer)  
+- Account Details: Contract type (month-to-month, yearly), billing preferences  
+- Payment Data: Payment method, monthly charges, total charges  
+- Service Usage: Internet service, phone service, streaming services  
+- Target Variable: Churn status (Yes/No)  
 
+### Initial Checks Performed:
+- Verified total row count and unique customer IDs  
+- Checked for missing or null values (minimal and handled where necessary)  
+- Standardized categorical values (e.g., payment methods, contract labels)  
+- Converted churn into a binary flag for analysis (1 = churned, 0 = retained)  
+- Reviewed distributions of key variables such as tenure and monthly charges  
+ 
+ 
 ## Executive Summary
 
 The analysis reveals that churn is **highly concentrated and predictable**, rather than random.  
