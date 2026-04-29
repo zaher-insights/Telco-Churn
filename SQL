@@ -6,6 +6,7 @@ SELECT
 FROM `telco-customers.Telco_Customers1.Telco_Churn`;
 -- churn rate 26%, thats very high.
 
+
 -- Do long-term contracts reduce churn?
 SELECT 
   Contract,
@@ -16,3 +17,66 @@ FROM `telco-customers.Telco_Customers1.Telco_Churn`
 GROUP BY Contract
 ORDER BY churn_rate DESC;
 -- month-to-month hightest churn, 2 year contracts lowest churn
+
+
+
+-- Are customers with hightest bill leaving?
+SELECT 
+  CASE 
+    WHEN MonthlyCharges < 40 THEN 'Low'
+    WHEN MonthlyCharges BETWEEN 40 AND 80 THEN 'Medium'
+    ELSE 'High'
+  END AS charge_group,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY charge_group
+ORDER BY churn_rate DESC;
+-- Customers with higher bill are higher churn risk. We need to fixing pricing. 
+
+
+-- When do customers leave?
+SELECT 
+  CASE 
+    WHEN tenure <= 12 THEN '0-1 Year'
+    WHEN tenure <= 24 THEN '1-2 Years'
+    ELSE '2+ Years'
+  END AS tenure_group,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY tenure_group
+ORDER BY churn_rate DESC;
+-- New customers churn the most, onboarding experience is weak.
+
+
+-- Which Internet Service effect the churn?
+SELECT 
+  InternetService,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY InternetService
+ORDER BY churn_rate desc;
+-- Lookes like Fiber Opitc often churn more, could indicate price or service quality issue.
+
+
+-- Do add-on services reduce churn?
+SELECT 
+  TechSupport,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY TechSupport;
+-- Customers without support higher churn.
+
+
+-- Which payment method effect have high risk of churn?
+SELECT 
+  PaymentMethod,
+  COUNT(*) AS total,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END)/COUNT(*), 3) AS churn_rate
+FROM `telco-customers.Telco_Customers1.Telco_Churn`
+GROUP BY PaymentMethod
+ORDER BY churn_rate DESC;
+-- Electronic check users churn the most.
